@@ -1,0 +1,33 @@
+*** CACHE SETTINGS ***
+  Split I- D-cache
+  I-cache size: 	32
+  D-cache size: 	32
+  Associativity: 	8
+  Block size: 	4
+  Write policy: 	WRITE BACK
+  Allocation policy: 	WRITE ALLOCATE
+processed 100000 references
+processed 200000 references
+processed 300000 references
+processed 400000 references
+processed 500000 references
+processed 600000 references
+processed 700000 references
+processed 800000 references
+processed 900000 references
+processed 1000000 references
+
+*** CACHE STATISTICS ***
+ INSTRUCTIONS
+  accesses:  782764
+  misses:    774870
+  miss rate: 0.9899 (hit rate 0.0101)
+  replace:   774862
+ DATA
+  accesses:  217237
+  misses:    137747
+  miss rate: 0.6341 (hit rate 0.3659)
+  replace:   137739
+ TRAFFIC (in words)
+  demand fetch:  912617
+  copies back:   55950
