@@ -1,0 +1,2 @@
+﻿algorithm,weather,cargo,route_ids,route_names,drive_time,delay_time,total_time,delayed_nodes,return_to_start
+simulated_annealing,rainy,small,"[2,5,8,14,12,18]",菜鸟驿站 -> 四食堂 -> 8舍 -> 图书馆 -> 教一 -> 曹光彪,7.54,7.00,14.54,5 四食堂; 8 8舍,false

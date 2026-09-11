@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1600"
+   height="2560"
+   viewBox="0 0 1600 2560"
+   version="1.1"
+   id="svg52"
+   sodipodi:docname="yuquan_gps_map_road_topology_orthogonal_cleaned_colored.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs52" />
+  <sodipodi:namedview
+     id="namedview52"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.9203125"
+     inkscape:cx="887.74194"
+     inkscape:cy="1860.2377"
+     inkscape:window-width="2560"
+     inkscape:window-height="1476"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg52" />
+  <path
+     d="M 781.7792,600.43 H 953.70656"
+     fill="none"
+     stroke="#000000"
+     stroke-width="1.85941"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-2"
+     style="stroke-width:4.95548;stroke-dasharray:none" />
+  <path
+     d="m 475.05352,854.8594 h 63.85164"
+     fill="none"
+     stroke="#000000"
+     stroke-width="1.85941"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-2-7"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 446.00197,1714.7064 v 155.3121"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21"
+     style="stroke-width:5.05815;stroke-dasharray:none" />
+  <path
+     d="m 108.13009,1898.9699 v 58.7156"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-8"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 245.8604,1533.422 v 335.7843"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 539.76948,776.97014 V 1049.9246"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1"
+     style="stroke-width:4.98281;stroke-dasharray:none" />
+  <path
+     d="m 1082.2009,1051.1279 v 172.7807"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1-2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 779.83616,761.25719 V 1021.6882"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1-2-2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 778.75976,1073.0894 v 609.0519"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1-2-2-3"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 539.79724,1052.7144 v 628.9227"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1-2-2-3-9"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 1037.1134,762.56577 V 1045.6518"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.600114"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-21-5-1-2-2-7"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 1036.9849,44.237004 V 473.07353"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.72207"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 1460.2567,41.039406 V 738.48671"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.72207"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-2-8"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 182.36757,2009.6937 v 451.0315"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.72207"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-2-8-7"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 779.40306,433.56475 V 758.87611"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.38301"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-5"
+     style="stroke-width:4.97449;stroke-dasharray:none" />
+  <path
+     d="M 1036.9802,622.04186 V 758.6316"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.38301"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-5-5"
+     style="stroke-width:4.95481;stroke-dasharray:none" />
+  <path
+     d="m 473.74865,802.32456 v 52.54502"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.38301"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2-8-5-5-2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 541.77021,760 H 1376.9148"
+     fill="none"
+     stroke="#000000"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1"
+     style="stroke-width:4.78;stroke-dasharray:none" />
+  <path
+     d="M 1460,760 L 1460,1686"
+     fill="none"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 542.62564,1050 h 694.48106 219.7318"
+     fill="none"
+     stroke="#000000"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path3"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 650,1686 L 1460,1686"
+     fill="none"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path5"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 650,1920 L 1220,1920"
+     fill="none"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 182.39973,2463.22 H 577.97048"
+     fill="none"
+     stroke="#000000"
+     stroke-width="3.33742"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6-5"
+     style="stroke-width:4.99223;stroke-dasharray:none" />
+  <path
+     d="M 651.56352,2344.0119 H 977.52049"
+     fill="none"
+     stroke="#000000"
+     stroke-width="3.33742"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6-5-1"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 650,1685.907 v 776.1535"
+     fill="none"
+     stroke="#000000"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path7"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 1220,1689.3901 v 654.5553"
+     fill="none"
+     stroke="#000000"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path8"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 1460,1622 L 1460,1686"
+     fill="none"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path10" />
+  <path
+     d="M 1190,2344 L 1220,2344"
+     fill="none"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path11"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 540,72.647373 V 785.28672"
+     fill="none"
+     stroke="#000000"
+     stroke-width="6.63558"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path13"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 754.66663,432.04496 h 128.28841 v 13.91008"
+     fill="none"
+     stroke="#000000"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path16" />
+  <path
+     d="m 964.93514,430.00264 h 72.12976 v 142.06222"
+     fill="none"
+     stroke="#000000"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path17" />
+  <path
+     d="M 382.0,778.0 L 405,778 L 405,1508 L 313.0,1508.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path20" />
+  <path
+     d="M 1148.0,1236.0 L 1083,1236 L 1083.0,1482.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path24" />
+  <path
+     d="M 1083.0,1529.0 L 1083,1622 L 1352.0,1622.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path25" />
+  <path
+     d="m 313.41173,1508.4117 h 132.28821 v 153.1766"
+     fill="none"
+     stroke="#000000"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path26" />
+  <path
+     d="M 492.0,1686.0 L 854,1686 L 854.0,1742.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path27" />
+  <path
+     d="M 920.0,1766.0 L 980,1766 L 980,2344 L 1037.0,2344.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path32" />
+  <path
+     d="M 1037.0,2344.0 L 1083,2344 L 1083.0,1529.0"
+     fill="none"
+     stroke="black"
+     stroke-width="5"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path34" />
+  <rect
+     x="473"
+     y="19"
+     width="133"
+     height="49"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect34" />
+  <text
+     x="485"
+     y="56.370117"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text34">01 北门</text>
+  <rect
+     x="444.02377"
+     y="173.63158"
+     width="195"
+     height="48"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect35" />
+  <text
+     x="455.48047"
+     y="208.82852"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text35">02 菜鸟驿站</text>
+  <rect
+     x="288.0051"
+     y="428.09845"
+     width="140"
+     height="48"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect36" />
+  <text
+     x="300.27673"
+     y="464.11035"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text36">03 32舍</text>
+  <rect
+     x="587.35626"
+     y="408"
+     width="164"
+     height="48"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect37" />
+  <text
+     x="598.97211"
+     y="443.15833"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text37">04 校医院</text>
+  <rect
+     x="800.61584"
+     y="406.83585"
+     width="164"
+     height="48"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect38" />
+  <text
+     x="812.61584"
+     y="440.84164"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text38">05 四食堂</text>
+  <rect
+     x="955"
+     y="572"
+     width="164"
+     height="48"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect39" />
+  <text
+     x="965.37012"
+     y="606.11035"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text39">06 三食堂</text>
+  <rect
+     x="1374.377"
+     y="738.18677"
+     width="164"
+     height="49"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect40" />
+  <text
+     x="1386.3768"
+     y="774.47028"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text40">07 新桥门</text>
+  <rect
+     x="381.20197"
+     y="754.01691"
+     width="123.13939"
+     height="47.966213"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4.03379"
+     id="rect41" />
+  <text
+     x="394"
+     y="790.28351"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text41">08 8舍</text>
+  <rect
+     x="712.30219"
+     y="1021.0916"
+     width="133"
+     height="49"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect42" />
+  <text
+     x="721.31409"
+     y="1056.8319"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text42">09 永谦</text>
+  <rect
+     x="997.03906"
+     y="1217.433"
+     width="164"
+     height="48"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect43" />
+  <text
+     x="1006.8658"
+     y="1251"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text43">10 田径场</text>
+  <rect
+     x="180"
+     y="1484"
+     width="133"
+     height="48"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect44" />
+  <text
+     x="192.76833"
+     y="1517.6217"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text44">11 教七</text>
+  <rect
+     x="1016"
+     y="1482"
+     width="133"
+     height="47"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect45" />
+  <text
+     x="1028"
+     y="1517.1583"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text45">12 教一</text>
+  <rect
+     x="1352"
+     y="1597"
+     width="133"
+     height="49"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect46" />
+  <text
+     x="1364"
+     y="1632.1969"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text46">13 正门</text>
+  <rect
+     x="328"
+     y="1662"
+     width="164"
+     height="48"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect47" />
+  <text
+     x="340.76834"
+     y="1697.1583"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text47">14 图书馆</text>
+  <rect
+     x="787"
+     y="1742"
+     width="133"
+     height="48"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect48" />
+  <text
+     x="798.23169"
+     y="1777.9266"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text48">15 教四</text>
+  <rect
+     x="27"
+     y="1850"
+     width="164"
+     height="48"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect49" />
+  <text
+     x="38.231667"
+     y="1885.9266"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text49">16 信电楼</text>
+  <rect
+     x="88"
+     y="1959"
+     width="195"
+     height="49"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect50" />
+  <text
+     x="99.231667"
+     y="1994.1583"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text50">17 高分子楼</text>
+  <rect
+     x="1037"
+     y="2319"
+     width="164"
+     height="49"
+     fill="white"
+     stroke="black"
+     stroke-width="4"
+     id="rect51" />
+  <text
+     x="1047.4634"
+     y="2354.1584"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text51">18 曹光彪</text>
+  <rect
+     x="579.0625"
+     y="2438.1526"
+     width="133"
+     height="49"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="4"
+     id="rect52" />
+  <text
+     x="592.40704"
+     y="2473.887"
+     font-family="'Microsoft YaHei', SimHei, sans-serif"
+     font-size="31px"
+     font-weight="700"
+     fill="#000000"
+     id="text52">19 南门</text>
+  <path
+     d="M 608.10373,40.408332 H 1037.2721"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.92702"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-8-1"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 1032.416,40.511667 h 427.5573"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.92702"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-8-1-1"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 541.24601,431.47774 h 44.17252"
+     fill="none"
+     stroke="#000000"
+     stroke-width="1.85941"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-2-1"
+     style="stroke-width:4.58233;stroke-dasharray:none" />
+  <path
+     d="M 430.3199,451.96859 H 539.14124"
+     fill="none"
+     stroke="#000000"
+     stroke-width="1.85941"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path1-2-1-9"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="M 284.81628,1985.0794 H 647.92742"
+     fill="none"
+     stroke="#000000"
+     stroke-width="3.33742"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6-5-3"
+     style="stroke-width:4.78302;stroke-dasharray:none" />
+  <path
+     d="M 193.64032,1870.6445 H 647.37438"
+     fill="none"
+     stroke="#000000"
+     stroke-width="3.33742"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6-5-3-2"
+     style="stroke-width:5;stroke-dasharray:none" />
+  <path
+     d="m 650.87729,1766.0944 h 133.3609"
+     fill="none"
+     stroke="#000000"
+     stroke-width="3.33742"
+     stroke-linecap="square"
+     stroke-linejoin="miter"
+     id="path6-5-3-3"
+     style="stroke-width:5;stroke-dasharray:none" />
+</svg>

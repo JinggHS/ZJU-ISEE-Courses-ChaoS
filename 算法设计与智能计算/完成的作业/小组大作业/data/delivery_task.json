@@ -1,0 +1,12 @@
+﻿{
+  "start": 2,
+  "points": [
+    14,
+    12,
+    5,
+    8,
+    18
+  ],
+  "return_to_start": false,
+  "description": "从菜鸟驿站出发，配送到图书馆、教一、四食堂、8舍、曹光彪"
+}

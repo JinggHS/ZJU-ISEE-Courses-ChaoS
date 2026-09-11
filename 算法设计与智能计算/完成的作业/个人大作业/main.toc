@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}实验目的}{1}{section.1}%
+\contentsline {section}{\numberline {2}实验任务}{1}{section.2}%
+\contentsline {section}{\numberline {3}实验环境}{1}{section.3}%
+\contentsline {section}{\numberline {4}实验原理}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}MNIST 数据集}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}卷积神经网络}{2}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}LeNet-5 网络结构}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}损失函数、优化器与评价指标}{3}{subsection.4.4}%
+\contentsline {section}{\numberline {5}实验过程}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}创建并打开 ModelArts Notebook}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}运行数据准备代码}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}运行环境设置与数据预处理}{4}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}构建原始 LeNet-5 并训练}{5}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}测试与预测可视化}{6}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}构建改进版 LeNet-5 并对比}{8}{subsection.5.6}%
+\contentsline {section}{\numberline {6}实验数据与结果}{9}{section.6}%
+\contentsline {section}{\numberline {7}数据分析}{11}{section.7}%
+\contentsline {section}{\numberline {8}实验总结}{12}{section.8}%
+\contentsline {section}{\numberline {A}改进版 LeNet-5 代码}{13}{section.A}%

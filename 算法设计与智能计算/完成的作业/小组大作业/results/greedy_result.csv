@@ -1,0 +1,2 @@
+﻿algorithm,route_ids,route_names,total_cost,return_to_start
+greedy,"[2,5,12,18,14,8]",菜鸟驿站 -> 四食堂 -> 教一 -> 曹光彪 -> 图书馆 -> 8舍,7.59,false

@@ -1,0 +1,5 @@
+光学全部参数{"name":"ITO","color":"#5d0eef","thick":"50","type":"1"}
+{"name":"NiOx","color":"#25b41a","thick":"20","type":"5"}
+{"name":"MAPbI3","color":"#ddd935","thick":"500","type":"3"}
+{"name":"C60","color":"#b0e856","thick":"50","type":"4"}
+{"name":"Ag","color":"#c49587","thick":"120","type":"2"}

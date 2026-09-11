@@ -1,0 +1,4 @@
+﻿algorithm,weather,cargo,route_ids,route_names,drive_time,delay_time,total_time,delayed_nodes,return_to_start
+greedy,sunny,small,"[2,6,7,3]",菜鸟驿站 -> 三食堂 -> 新桥门 -> 32舍,3.52,7.00,10.52,6 三食堂; 3 32舍,false
+simulated_annealing,sunny,small,"[2,3,6,7]",菜鸟驿站 -> 32舍 -> 三食堂 -> 新桥门,2.15,7.00,9.15,3 32舍; 6 三食堂,false
+ant_colony,sunny,small,"[2,3,6,7]",菜鸟驿站 -> 32舍 -> 三食堂 -> 新桥门,2.15,7.00,9.15,3 32舍; 6 三食堂,false

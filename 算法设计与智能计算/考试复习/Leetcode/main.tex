@@ -1,0 +1,1106 @@
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem}
+\setlist{nosep}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\title{LeetCode 前 100 题伪代码整理}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section*{说明}
+\addcontentsline{toc}{section}{说明}
+本文按 LeetCode 题号 1--100 整理常见解法伪代码，用于复习算法思路。伪代码侧重关键流程和复杂度，不包含完整可提交代码。
+
+\newcommand{\problem}[3]{
+\subsection{#1. #2}
+\textbf{思路：} #3
+}
+
+\problem{1}{Two Sum}{哈希表保存已遍历数字的位置，遇到目标补数时直接返回。}
+\begin{verbatim}
+map = empty hash map
+for i from 0 to n-1:
+    need = target - nums[i]
+    if need in map: return [map[need], i]
+    map[nums[i]] = i
+\end{verbatim}
+
+\problem{2}{Add Two Numbers}{按链表位逐位相加，维护进位并生成新链表。}
+\begin{verbatim}
+carry = 0; dummy = new node
+while l1 or l2 or carry:
+    sum = carry + value(l1) + value(l2)
+    append node(sum mod 10)
+    carry = sum div 10
+    move l1 and l2 if possible
+return dummy.next
+\end{verbatim}
+
+\problem{3}{Longest Substring Without Repeating Characters}{滑动窗口维护无重复区间，哈希表记录字符最后位置。}
+\begin{verbatim}
+left = 0; ans = 0; last = empty map
+for right from 0 to len(s)-1:
+    c = s[right]
+    if c in last and last[c] >= left: left = last[c] + 1
+    last[c] = right
+    ans = max(ans, right - left + 1)
+return ans
+\end{verbatim}
+
+\problem{4}{Median of Two Sorted Arrays}{二分较短数组的切分位置，使左右两侧数量相等且有序。}
+\begin{verbatim}
+ensure A is shorter than B
+binary search i in [0, len(A)]:
+    j = (m+n+1)/2 - i
+    if Aleft <= Bright and Bleft <= Aright:
+        if odd: return max(Aleft, Bleft)
+        else: return (max(lefts)+min(rights))/2
+    else if Aleft > Bright: search left
+    else: search right
+\end{verbatim}
+
+\problem{5}{Longest Palindromic Substring}{枚举每个中心，分别扩展奇数和偶数长度回文。}
+\begin{verbatim}
+best = ""
+for center from 0 to n-1:
+    update best by expand(center, center)
+    update best by expand(center, center+1)
+return best
+
+expand(l, r):
+    while l>=0 and r<n and s[l]==s[r]: l--, r++
+    return s[l+1 ... r-1]
+\end{verbatim}
+
+\problem{6}{Zigzag Conversion}{按行模拟字符移动方向，到顶或到底时反向。}
+\begin{verbatim}
+if numRows == 1: return s
+rows = array of empty strings
+row = 0; dir = 1
+for c in s:
+    rows[row] += c
+    if row == 0: dir = 1
+    if row == numRows-1: dir = -1
+    row += dir
+return concatenate rows
+\end{verbatim}
+
+\problem{7}{Reverse Integer}{逐位弹出数字并检查 32 位整数边界。}
+\begin{verbatim}
+ans = 0
+while x != 0:
+    digit = x mod 10
+    x = truncate(x / 10)
+    if ans will overflow after ans*10+digit: return 0
+    ans = ans*10 + digit
+return ans
+\end{verbatim}
+
+\problem{8}{String to Integer (atoi)}{跳过空格，读取符号和连续数字，过程中截断到边界。}
+\begin{verbatim}
+i = first non-space index
+sign = read optional + or -
+ans = 0
+while i<n and s[i] is digit:
+    ans = ans*10 + digit
+    if sign*ans exceeds bound: return bound
+    i++
+return sign * ans
+\end{verbatim}
+
+\problem{9}{Palindrome Number}{负数不是回文；反转后一半数字与前一半比较。}
+\begin{verbatim}
+if x < 0 or (x % 10 == 0 and x != 0): return false
+rev = 0
+while x > rev:
+    rev = rev*10 + x%10
+    x = x/10
+return x == rev or x == rev/10
+\end{verbatim}
+
+\problem{10}{Regular Expression Matching}{动态规划，dp[i][j] 表示 s 前 i 个与 p 前 j 个是否匹配。}
+\begin{verbatim}
+dp[0][0] = true
+for j where p[j-1] == '*': dp[0][j] = dp[0][j-2]
+for i from 1..m:
+  for j from 1..n:
+    if p[j-1] matches s[i-1]: dp[i][j] = dp[i-1][j-1]
+    else if p[j-1] == '*':
+        dp[i][j] = dp[i][j-2]
+        if p[j-2] matches s[i-1]: dp[i][j] |= dp[i-1][j]
+return dp[m][n]
+\end{verbatim}
+
+\problem{11}{Container With Most Water}{双指针从两端向内移动，每次移动较短边。}
+\begin{verbatim}
+l = 0; r = n-1; ans = 0
+while l < r:
+    ans = max(ans, min(h[l],h[r])*(r-l))
+    if h[l] < h[r]: l++ else: r--
+return ans
+\end{verbatim}
+
+\problem{12}{Integer to Roman}{从大到小贪心匹配罗马数值和符号。}
+\begin{verbatim}
+pairs = [(1000,"M"),(900,"CM"),...,(1,"I")]
+ans = ""
+for value, symbol in pairs:
+    while num >= value:
+        ans += symbol
+        num -= value
+return ans
+\end{verbatim}
+
+\problem{13}{Roman to Integer}{若当前字符小于右侧字符则减，否则加。}
+\begin{verbatim}
+ans = 0
+for i from 0 to n-1:
+    v = value(s[i])
+    if i+1<n and v < value(s[i+1]): ans -= v
+    else: ans += v
+return ans
+\end{verbatim}
+
+\problem{14}{Longest Common Prefix}{用第一个字符串作候选前缀，逐个缩短直到匹配所有字符串。}
+\begin{verbatim}
+prefix = strs[0]
+for each str in strs:
+    while str does not start with prefix:
+        remove last char from prefix
+        if prefix empty: return ""
+return prefix
+\end{verbatim}
+
+\problem{15}{3Sum}{排序后枚举第一个数，内层双指针找相反数并跳过重复。}
+\begin{verbatim}
+sort nums; ans = []
+for i from 0 to n-3:
+    if i>0 and nums[i]==nums[i-1]: continue
+    l=i+1; r=n-1
+    while l<r:
+        sum = nums[i]+nums[l]+nums[r]
+        if sum==0: record triple; skip duplicate l,r
+        else if sum<0: l++
+        else: r--
+return ans
+\end{verbatim}
+
+\problem{16}{3Sum Closest}{排序后固定一个数，双指针更新最接近 target 的和。}
+\begin{verbatim}
+sort nums; best = nums[0]+nums[1]+nums[2]
+for i from 0 to n-3:
+    l=i+1; r=n-1
+    while l<r:
+        sum = nums[i]+nums[l]+nums[r]
+        if abs(sum-target) < abs(best-target): best = sum
+        if sum < target: l++ else if sum > target: r-- else return sum
+return best
+\end{verbatim}
+
+\problem{17}{Letter Combinations of a Phone Number}{回溯构造每一位数字对应的字母组合。}
+\begin{verbatim}
+if digits empty: return []
+backtrack(pos, path):
+    if pos == len(digits): add path; return
+    for c in letters[digits[pos]]:
+        backtrack(pos+1, path+c)
+return all paths
+\end{verbatim}
+
+\problem{18}{4Sum}{排序后枚举前两个数，后两个数用双指针，注意去重和剪枝。}
+\begin{verbatim}
+sort nums; ans=[]
+for i from 0..n-4:
+  skip duplicate i
+  for j from i+1..n-3:
+    skip duplicate j
+    l=j+1; r=n-1
+    while l<r:
+      sum = nums[i]+nums[j]+nums[l]+nums[r]
+      if sum==target: record; skip duplicates
+      else if sum<target: l++ else: r--
+return ans
+\end{verbatim}
+
+\problem{19}{Remove Nth Node From End of List}{哑节点配合快慢指针，快指针先走 n+1 步。}
+\begin{verbatim}
+dummy.next = head
+fast = slow = dummy
+repeat n+1 times: fast = fast.next
+while fast:
+    fast = fast.next; slow = slow.next
+slow.next = slow.next.next
+return dummy.next
+\end{verbatim}
+
+\problem{20}{Valid Parentheses}{栈保存左括号，遇到右括号时检查栈顶是否匹配。}
+\begin{verbatim}
+stack = []
+for c in s:
+    if c is left bracket: push c
+    else:
+        if stack empty or top not matching c: return false
+        pop
+return stack empty
+\end{verbatim}
+
+\problem{21}{Merge Two Sorted Lists}{双指针归并两个有序链表。}
+\begin{verbatim}
+dummy = new node; cur = dummy
+while l1 and l2:
+    append smaller node to cur
+append remaining non-empty list
+return dummy.next
+\end{verbatim}
+
+\problem{22}{Generate Parentheses}{回溯保证左括号数量不超过 n，右括号不超过左括号。}
+\begin{verbatim}
+dfs(left, right, path):
+    if len(path)==2*n: add path; return
+    if left < n: dfs(left+1, right, path+"(")
+    if right < left: dfs(left, right+1, path+")")
+\end{verbatim}
+
+\problem{23}{Merge k Sorted Lists}{小根堆维护每个链表当前最小节点。}
+\begin{verbatim}
+push head of each non-empty list into min heap
+dummy = new node
+while heap not empty:
+    node = pop min
+    append node
+    if node.next: push node.next
+return dummy.next
+\end{verbatim}
+
+\problem{24}{Swap Nodes in Pairs}{迭代处理每两个节点，调整前驱指针。}
+\begin{verbatim}
+dummy.next = head; pre = dummy
+while pre.next and pre.next.next:
+    a = pre.next; b = a.next
+    pre.next = b; a.next = b.next; b.next = a
+    pre = a
+return dummy.next
+\end{verbatim}
+
+\problem{25}{Reverse Nodes in k-Group}{每次检查是否有 k 个节点，有则局部反转并连接。}
+\begin{verbatim}
+dummy.next=head; groupPrev=dummy
+loop:
+    kth = kth node after groupPrev
+    if kth is null: break
+    groupNext = kth.next
+    reverse [groupPrev.next, kth]
+    oldHead = groupPrev.next
+    groupPrev.next = kth
+    oldHead.next = groupNext
+    groupPrev = oldHead
+return dummy.next
+\end{verbatim}
+
+\problem{26}{Remove Duplicates from Sorted Array}{慢指针指向去重后数组末尾，快指针扫描新值。}
+\begin{verbatim}
+if nums empty: return 0
+slow = 1
+for fast from 1 to n-1:
+    if nums[fast] != nums[fast-1]:
+        nums[slow] = nums[fast]; slow++
+return slow
+\end{verbatim}
+
+\problem{27}{Remove Element}{快慢指针保留所有不等于 val 的元素。}
+\begin{verbatim}
+slow = 0
+for x in nums:
+    if x != val:
+        nums[slow] = x; slow++
+return slow
+\end{verbatim}
+
+\problem{28}{Find the Index of the First Occurrence in a String}{KMP 构造前缀函数后在线匹配。}
+\begin{verbatim}
+build lps array for needle
+j = 0
+for i from 0 to len(haystack)-1:
+    while j>0 and haystack[i]!=needle[j]: j = lps[j-1]
+    if equal: j++
+    if j == len(needle): return i-j+1
+return -1
+\end{verbatim}
+
+\problem{29}{Divide Two Integers}{转为负数避免溢出，用倍增减法求商。}
+\begin{verbatim}
+handle overflow case
+make dividend and divisor negative; sign = result sign
+ans = 0
+while dividend <= divisor:
+    value = divisor; count = 1
+    while value+value >= dividend and value+value < 0:
+        value += value; count += count
+    dividend -= value; ans += count
+return sign * ans
+\end{verbatim}
+
+\problem{30}{Substring with Concatenation of All Words}{按单词长度分组滑动窗口，维护窗口内单词计数。}
+\begin{verbatim}
+need = count of words
+for offset in 0..wordLen-1:
+    left = offset; window = empty count
+    for right step wordLen:
+        word = s[right:right+wordLen]
+        add word; shrink while window[word] > need[word]
+        if window has all words: record left
+return ans
+\end{verbatim}
+
+\problem{31}{Next Permutation}{从右找第一个下降点，交换其右侧更大的最小元素，再反转后缀。}
+\begin{verbatim}
+i = n-2
+while i>=0 and nums[i]>=nums[i+1]: i--
+if i>=0:
+    j = n-1
+    while nums[j] <= nums[i]: j--
+    swap nums[i], nums[j]
+reverse nums[i+1 ... n-1]
+\end{verbatim}
+
+\problem{32}{Longest Valid Parentheses}{栈保存下标，栈底是当前无效边界。}
+\begin{verbatim}
+stack = [-1]; ans = 0
+for i from 0 to n-1:
+    if s[i]=='(': push i
+    else:
+        pop
+        if stack empty: push i
+        else: ans = max(ans, i - top)
+return ans
+\end{verbatim}
+
+\problem{33}{Search in Rotated Sorted Array}{二分判断哪一半有序，再决定目标在哪边。}
+\begin{verbatim}
+l=0; r=n-1
+while l<=r:
+    mid=(l+r)/2
+    if nums[mid]==target: return mid
+    if nums[l] <= nums[mid]:
+        if nums[l]<=target<nums[mid]: r=mid-1 else: l=mid+1
+    else:
+        if nums[mid]<target<=nums[r]: l=mid+1 else: r=mid-1
+return -1
+\end{verbatim}
+
+\problem{34}{Find First and Last Position of Element in Sorted Array}{两次二分分别找第一个大于等于 target 和大于 target 的位置。}
+\begin{verbatim}
+left = lower_bound(nums, target)
+right = lower_bound(nums, target+epsilon) - 1
+if left <= right: return [left, right]
+else return [-1, -1]
+\end{verbatim}
+
+\problem{35}{Search Insert Position}{标准 lower bound。}
+\begin{verbatim}
+l=0; r=n
+while l<r:
+    mid=(l+r)/2
+    if nums[mid] < target: l=mid+1
+    else: r=mid
+return l
+\end{verbatim}
+
+\problem{36}{Valid Sudoku}{用集合检查每行、每列、每个 3x3 宫是否重复。}
+\begin{verbatim}
+rows, cols, boxes = arrays of sets
+for each cell (i,j):
+    if board[i][j] == '.': continue
+    b = (i/3)*3 + j/3
+    if val in rows[i] or cols[j] or boxes[b]: return false
+    add val to rows[i], cols[j], boxes[b]
+return true
+\end{verbatim}
+
+\problem{37}{Sudoku Solver}{回溯填空格，使用行列宫集合快速判断合法性。}
+\begin{verbatim}
+collect empty cells
+dfs(k):
+    if k == number of empties: return true
+    choose cell k
+    for digit 1..9:
+        if digit valid in row, col, box:
+            place digit
+            if dfs(k+1): return true
+            remove digit
+    return false
+\end{verbatim}
+
+\problem{38}{Count and Say}{从 "1" 开始，逐轮压缩连续相同字符。}
+\begin{verbatim}
+s = "1"
+repeat n-1 times:
+    next = ""
+    scan groups of equal chars in s:
+        next += count + char
+    s = next
+return s
+\end{verbatim}
+
+\problem{39}{Combination Sum}{排序后回溯，同一数字可重复使用。}
+\begin{verbatim}
+sort candidates
+dfs(start, remain, path):
+    if remain == 0: add path; return
+    for i from start to end:
+        if candidates[i] > remain: break
+        dfs(i, remain-candidates[i], path+[candidates[i]])
+\end{verbatim}
+
+\problem{40}{Combination Sum II}{排序后回溯，每个数字最多用一次，同层跳过重复。}
+\begin{verbatim}
+sort candidates
+dfs(start, remain, path):
+    if remain == 0: add path; return
+    for i from start to end:
+        if i>start and candidates[i]==candidates[i-1]: continue
+        if candidates[i] > remain: break
+        dfs(i+1, remain-candidates[i], path+[candidates[i]])
+\end{verbatim}
+
+\problem{41}{First Missing Positive}{原地把数字 x 放到下标 x-1，最后找第一个不匹配位置。}
+\begin{verbatim}
+for i from 0 to n-1:
+    while 1<=nums[i]<=n and nums[nums[i]-1] != nums[i]:
+        swap nums[i], nums[nums[i]-1]
+for i from 0 to n-1:
+    if nums[i] != i+1: return i+1
+return n+1
+\end{verbatim}
+
+\problem{42}{Trapping Rain Water}{双指针维护左右最高墙，较低一侧决定当前蓄水。}
+\begin{verbatim}
+l=0; r=n-1; leftMax=0; rightMax=0; ans=0
+while l<r:
+    if height[l] < height[r]:
+        leftMax=max(leftMax,height[l]); ans+=leftMax-height[l]; l++
+    else:
+        rightMax=max(rightMax,height[r]); ans+=rightMax-height[r]; r--
+return ans
+\end{verbatim}
+
+\problem{43}{Multiply Strings}{模拟竖式乘法，结果数组长度最多 m+n。}
+\begin{verbatim}
+res = array of zeros length m+n
+for i from m-1 downto 0:
+  for j from n-1 downto 0:
+    mul = digit(num1[i]) * digit(num2[j])
+    sum = mul + res[i+j+1]
+    res[i+j+1] = sum % 10
+    res[i+j] += sum / 10
+return res without leading zeros
+\end{verbatim}
+
+\problem{44}{Wildcard Matching}{动态规划处理 ? 和 *，星号可匹配空串或继续消耗字符。}
+\begin{verbatim}
+dp[0][0]=true
+for j where p[j-1]=='*': dp[0][j]=dp[0][j-1]
+for i=1..m:
+  for j=1..n:
+    if p[j-1]=='?' or equal: dp[i][j]=dp[i-1][j-1]
+    else if p[j-1]=='*': dp[i][j]=dp[i][j-1] or dp[i-1][j]
+return dp[m][n]
+\end{verbatim}
+
+\problem{45}{Jump Game II}{贪心按层扫描，当前层结束时必须跳一次并扩展最远边界。}
+\begin{verbatim}
+steps=0; end=0; far=0
+for i from 0 to n-2:
+    far = max(far, i+nums[i])
+    if i == end:
+        steps++; end = far
+return steps
+\end{verbatim}
+
+\problem{46}{Permutations}{回溯，每次选择一个未使用元素。}
+\begin{verbatim}
+dfs(path):
+    if len(path)==n: add path; return
+    for i in 0..n-1:
+        if used[i]: continue
+        used[i]=true; dfs(path+[nums[i]]); used[i]=false
+\end{verbatim}
+
+\problem{47}{Permutations II}{排序后回溯，若前一个相同元素未使用则跳过当前元素。}
+\begin{verbatim}
+sort nums
+dfs(path):
+    if len(path)==n: add path; return
+    for i in 0..n-1:
+        if used[i]: continue
+        if i>0 and nums[i]==nums[i-1] and not used[i-1]: continue
+        choose nums[i]; dfs; unchoose
+\end{verbatim}
+
+\problem{48}{Rotate Image}{先沿主对角线转置，再水平翻转每一行。}
+\begin{verbatim}
+for i in 0..n-1:
+  for j in i+1..n-1: swap matrix[i][j], matrix[j][i]
+for each row:
+  reverse row
+\end{verbatim}
+
+\problem{49}{Group Anagrams}{把排序后的字符串作为 key 分组。}
+\begin{verbatim}
+map = empty dictionary
+for str in strs:
+    key = sort characters of str
+    map[key].append(str)
+return values of map
+\end{verbatim}
+
+\problem{50}{Pow(x, n)}{快速幂，指数二进制拆分；负指数取倒数。}
+\begin{verbatim}
+if n < 0: x = 1/x; n = -n
+ans = 1
+while n > 0:
+    if n odd: ans *= x
+    x *= x
+    n = n / 2
+return ans
+\end{verbatim}
+
+\problem{51}{N-Queens}{按行回溯，集合记录列、主对角线、副对角线占用。}
+\begin{verbatim}
+dfs(row):
+    if row == n: add board; return
+    for col in 0..n-1:
+        if col or row-col or row+col occupied: continue
+        place queen; mark; dfs(row+1); unmark
+\end{verbatim}
+
+\problem{52}{N-Queens II}{与 N 皇后相同，只统计方案数，不保存棋盘。}
+\begin{verbatim}
+count = 0
+dfs(row):
+    if row == n: count++; return
+    for each legal col:
+        mark; dfs(row+1); unmark
+return count
+\end{verbatim}
+
+\problem{53}{Maximum Subarray}{Kadane 算法：当前位置最大子数组要么延续，要么从当前数重开。}
+\begin{verbatim}
+cur = best = nums[0]
+for i from 1 to n-1:
+    cur = max(nums[i], cur + nums[i])
+    best = max(best, cur)
+return best
+\end{verbatim}
+
+\problem{54}{Spiral Matrix}{维护上下左右边界，按右、下、左、上顺序收缩。}
+\begin{verbatim}
+top=0; bottom=m-1; left=0; right=n-1
+while top<=bottom and left<=right:
+    traverse top row; top++
+    traverse right col; right--
+    if top<=bottom: traverse bottom row; bottom--
+    if left<=right: traverse left col; left++
+\end{verbatim}
+
+\problem{55}{Jump Game}{贪心维护能到达的最远位置，扫描中若当前位置超过最远则失败。}
+\begin{verbatim}
+far = 0
+for i from 0 to n-1:
+    if i > far: return false
+    far = max(far, i + nums[i])
+return true
+\end{verbatim}
+
+\problem{56}{Merge Intervals}{按起点排序，依次合并与当前区间重叠的区间。}
+\begin{verbatim}
+sort intervals by start
+ans = []
+for interval in intervals:
+    if ans empty or interval.start > ans.last.end:
+        append interval
+    else:
+        ans.last.end = max(ans.last.end, interval.end)
+return ans
+\end{verbatim}
+
+\problem{57}{Insert Interval}{先加入新区间左侧，再合并所有重叠区间，最后加入右侧。}
+\begin{verbatim}
+append intervals ending before new.start
+while current starts before or at new.end:
+    new.start = min(new.start, current.start)
+    new.end = max(new.end, current.end)
+append merged new
+append remaining intervals
+\end{verbatim}
+
+\problem{58}{Length of Last Word}{从字符串末尾跳过空格，再统计连续非空格长度。}
+\begin{verbatim}
+i = n-1
+while i>=0 and s[i]==' ': i--
+len = 0
+while i>=0 and s[i]!=' ': len++, i--
+return len
+\end{verbatim}
+
+\problem{59}{Spiral Matrix II}{按螺旋顺序向矩阵填入 1 到 n^2。}
+\begin{verbatim}
+num=1; top=0; bottom=n-1; left=0; right=n-1
+while num <= n*n:
+    fill top row; top++
+    fill right col; right--
+    fill bottom row; bottom--
+    fill left col; left++
+return matrix
+\end{verbatim}
+
+\problem{60}{Permutation Sequence}{用阶乘数系统逐位确定第 k 个排列。}
+\begin{verbatim}
+k = k-1; nums = [1..n]
+for pos from n downto 1:
+    block = factorial(pos-1)
+    index = k / block
+    append nums[index]; remove it
+    k = k % block
+return answer
+\end{verbatim}
+
+\problem{61}{Rotate List}{链表成环后在新尾位置断开。}
+\begin{verbatim}
+if head null: return head
+compute length len and tail
+k = k % len
+if k == 0: return head
+tail.next = head
+steps to newTail = len-k-1
+newHead = newTail.next
+newTail.next = null
+return newHead
+\end{verbatim}
+
+\problem{62}{Unique Paths}{二维或一维 DP，dp[j] 表示到当前格子的路径数。}
+\begin{verbatim}
+dp = array of 1 length n
+for i from 1 to m-1:
+    for j from 1 to n-1:
+        dp[j] += dp[j-1]
+return dp[n-1]
+\end{verbatim}
+
+\problem{63}{Unique Paths II}{障碍格路径数为 0，其余格等于上方加左方。}
+\begin{verbatim}
+dp[0] = 1 if start not obstacle else 0
+for each row i:
+    for each col j:
+        if obstacle[i][j]: dp[j] = 0
+        else if j>0: dp[j] += dp[j-1]
+return dp[n-1]
+\end{verbatim}
+
+\problem{64}{Minimum Path Sum}{原地或一维 DP，当前位置最小和来自上方或左方较小者。}
+\begin{verbatim}
+for each cell (i,j):
+    if start: continue
+    up = dp value from above or infinity
+    left = dp value from left or infinity
+    grid[i][j] += min(up, left)
+return grid[m-1][n-1]
+\end{verbatim}
+
+\problem{65}{Valid Number}{按有限状态或规则扫描符号、小数点、指数和数字。}
+\begin{verbatim}
+seenDigit=false; seenDot=false; seenExp=false
+for each char c with index i:
+    if digit: seenDigit=true
+    else if c in '+-': valid only at start or after e/E
+    else if c=='.': valid only if no dot and no exp
+    else if c in 'eE': valid only if no exp and seenDigit; reset seenDigit=false
+    else return false
+return seenDigit
+\end{verbatim}
+
+\problem{66}{Plus One}{从末尾加一，处理连续进位。}
+\begin{verbatim}
+for i from n-1 downto 0:
+    if digits[i] < 9:
+        digits[i]++; return digits
+    digits[i] = 0
+return [1] + digits
+\end{verbatim}
+
+\problem{67}{Add Binary}{从两个字符串末尾开始按位相加并处理进位。}
+\begin{verbatim}
+i=m-1; j=n-1; carry=0; ans=""
+while i>=0 or j>=0 or carry:
+    sum = carry + bit(a,i) + bit(b,j)
+    prepend sum%2 to ans
+    carry = sum/2
+    i--; j--
+return ans
+\end{verbatim}
+
+\problem{68}{Text Justification}{贪心取每行最多单词，再按空格规则分配。}
+\begin{verbatim}
+while words remain:
+    take maximal words fitting maxWidth
+    if last line or one word:
+        left justify with single spaces then pad right
+    else:
+        spaces = maxWidth - total letters
+        distribute spaces evenly; earlier gaps get extras
+return lines
+\end{verbatim}
+
+\problem{69}{Sqrt(x)}{二分查找最大整数 y，使 y*y <= x。}
+\begin{verbatim}
+l=0; r=x; ans=0
+while l<=r:
+    mid=(l+r)/2
+    if mid <= x/mid: ans=mid; l=mid+1
+    else: r=mid-1
+return ans
+\end{verbatim}
+
+\problem{70}{Climbing Stairs}{斐波那契 DP，f[i]=f[i-1]+f[i-2]。}
+\begin{verbatim}
+if n<=2: return n
+a=1; b=2
+for i from 3 to n:
+    c=a+b; a=b; b=c
+return b
+\end{verbatim}
+
+\problem{71}{Simplify Path}{按斜杠分割，栈处理目录名、点和双点。}
+\begin{verbatim}
+stack = []
+for token in split(path, '/'):
+    if token empty or token == ".": continue
+    if token == "..": pop if stack not empty
+    else: push token
+return "/" + join(stack, "/")
+\end{verbatim}
+
+\problem{72}{Edit Distance}{经典 DP，插入、删除、替换三种转移。}
+\begin{verbatim}
+dp[i][0]=i; dp[0][j]=j
+for i=1..m:
+  for j=1..n:
+    if word1[i-1]==word2[j-1]: dp[i][j]=dp[i-1][j-1]
+    else dp[i][j]=1+min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+return dp[m][n]
+\end{verbatim}
+
+\problem{73}{Set Matrix Zeroes}{用第一行第一列作为标记，额外记录第一列是否清零。}
+\begin{verbatim}
+firstColZero = any matrix[i][0] == 0
+for cells excluding first row/col:
+    if cell==0: mark row and col in first column/row
+zero cells according to marks
+if matrix[0][0]==0: zero first row
+if firstColZero: zero first col
+\end{verbatim}
+
+\problem{74}{Search a 2D Matrix}{把矩阵看作长度 m*n 的有序数组进行二分。}
+\begin{verbatim}
+l=0; r=m*n-1
+while l<=r:
+    mid=(l+r)/2
+    val = matrix[mid/n][mid%n]
+    if val==target: return true
+    else if val<target: l=mid+1
+    else: r=mid-1
+return false
+\end{verbatim}
+
+\problem{75}{Sort Colors}{荷兰国旗算法，三个区域分别放 0、1、2。}
+\begin{verbatim}
+zero=0; i=0; two=n-1
+while i<=two:
+    if nums[i]==0: swap nums[zero],nums[i]; zero++; i++
+    else if nums[i]==2: swap nums[i],nums[two]; two--
+    else: i++
+\end{verbatim}
+
+\problem{76}{Minimum Window Substring}{滑动窗口满足需求后尽量收缩左边界。}
+\begin{verbatim}
+need = char counts of t; missing = len(t)
+left=0; best=none
+for right in 0..len(s)-1:
+    if need[s[right]] > 0: missing--
+    need[s[right]]--
+    while missing == 0:
+        update best with [left,right]
+        need[s[left]]++
+        if need[s[left]] > 0: missing++
+        left++
+return best substring or ""
+\end{verbatim}
+
+\problem{77}{Combinations}{回溯从递增数字中选择 k 个，可用剩余数量剪枝。}
+\begin{verbatim}
+dfs(start, path):
+    if len(path)==k: add path; return
+    for x from start to n - (k-len(path)) + 1:
+        dfs(x+1, path+[x])
+\end{verbatim}
+
+\problem{78}{Subsets}{逐个元素选择或不选择，或递归枚举起点。}
+\begin{verbatim}
+ans = []
+dfs(start, path):
+    add path to ans
+    for i from start to n-1:
+        dfs(i+1, path+[nums[i]])
+return ans
+\end{verbatim}
+
+\problem{79}{Word Search}{从每个格子开始 DFS，访问过的格子临时标记。}
+\begin{verbatim}
+for each cell:
+    if dfs(cell, 0): return true
+
+dfs(i,j,k):
+    if k == len(word): return true
+    if out of bound or visited or board[i][j]!=word[k]: return false
+    mark visited
+    search four neighbors with k+1
+    unmark
+\end{verbatim}
+
+\problem{80}{Remove Duplicates from Sorted Array II}{保留每个数字最多两次，慢指针比较前两位。}
+\begin{verbatim}
+slow = 0
+for x in nums:
+    if slow < 2 or x != nums[slow-2]:
+        nums[slow] = x; slow++
+return slow
+\end{verbatim}
+
+\problem{81}{Search in Rotated Sorted Array II}{带重复值的旋转数组二分，无法判断时收缩左边界。}
+\begin{verbatim}
+l=0; r=n-1
+while l<=r:
+    mid=(l+r)/2
+    if nums[mid]==target: return true
+    if nums[l]==nums[mid]: l++; continue
+    if nums[l] < nums[mid]:
+        decide target in left sorted half
+    else:
+        decide target in right sorted half
+return false
+\end{verbatim}
+
+\problem{82}{Remove Duplicates from Sorted List II}{哑节点加前驱指针，整段跳过重复值。}
+\begin{verbatim}
+dummy.next=head; pre=dummy; cur=head
+while cur:
+    if cur.next and cur.val==cur.next.val:
+        val=cur.val
+        while cur and cur.val==val: cur=cur.next
+        pre.next=cur
+    else:
+        pre=cur; cur=cur.next
+return dummy.next
+\end{verbatim}
+
+\problem{83}{Remove Duplicates from Sorted List}{遍历有序链表，跳过与当前节点值相同的后继。}
+\begin{verbatim}
+cur=head
+while cur and cur.next:
+    if cur.val == cur.next.val: cur.next = cur.next.next
+    else: cur = cur.next
+return head
+\end{verbatim}
+
+\problem{84}{Largest Rectangle in Histogram}{单调递增栈，弹出时以该高度计算最大矩形。}
+\begin{verbatim}
+append sentinel 0
+stack = [-1]; ans=0
+for i from 0 to n:
+    while stack top valid and heights[top] > heights[i]:
+        h = heights[pop]
+        w = i - stack.top - 1
+        ans = max(ans, h*w)
+    push i
+return ans
+\end{verbatim}
+
+\problem{85}{Maximal Rectangle}{逐行把 1 的连续高度转成柱状图，调用最大矩形算法。}
+\begin{verbatim}
+heights = zeros of column count
+for each row:
+    for each col:
+        heights[col] = heights[col]+1 if cell=='1' else 0
+    ans = max(ans, largestRectangle(heights))
+return ans
+\end{verbatim}
+
+\problem{86}{Partition List}{维护小于 x 和大于等于 x 两条链，最后拼接。}
+\begin{verbatim}
+smallDummy, bigDummy
+for each node:
+    if node.val < x: append to small
+    else: append to big
+terminate big list
+small.next = bigDummy.next
+return smallDummy.next
+\end{verbatim}
+
+\problem{87}{Scramble String}{区间 DP 或记忆化搜索，枚举切分并判断交换/不交换两种情况。}
+\begin{verbatim}
+memo dfs(aStart, bStart, len):
+    if substrings equal: return true
+    if char counts differ: return false
+    for k from 1 to len-1:
+        if dfs(a,b,k) and dfs(a+k,b+k,len-k): return true
+        if dfs(a,b+len-k,k) and dfs(a+k,b,len-k): return true
+    return false
+\end{verbatim}
+
+\problem{88}{Merge Sorted Array}{从两个数组有效部分末尾向前归并，避免覆盖。}
+\begin{verbatim}
+i=m-1; j=n-1; k=m+n-1
+while j>=0:
+    if i>=0 and nums1[i] > nums2[j]:
+        nums1[k]=nums1[i]; i--
+    else:
+        nums1[k]=nums2[j]; j--
+    k--
+\end{verbatim}
+
+\problem{89}{Gray Code}{第 i 个格雷码为 i xor (i >> 1)。}
+\begin{verbatim}
+ans=[]
+for i from 0 to 2^n - 1:
+    ans.append(i xor (i >> 1))
+return ans
+\end{verbatim}
+
+\problem{90}{Subsets II}{排序后回溯，同层跳过重复元素。}
+\begin{verbatim}
+sort nums
+dfs(start, path):
+    add path
+    for i from start to n-1:
+        if i>start and nums[i]==nums[i-1]: continue
+        dfs(i+1, path+[nums[i]])
+\end{verbatim}
+
+\problem{91}{Decode Ways}{DP，单字符 1-9 可解码，双字符 10-26 可解码。}
+\begin{verbatim}
+dp[0]=1
+for i from 1 to n:
+    if s[i-1] != '0': dp[i] += dp[i-1]
+    if i>=2 and 10 <= int(s[i-2:i]) <= 26: dp[i] += dp[i-2]
+return dp[n]
+\end{verbatim}
+
+\problem{92}{Reverse Linked List II}{找到 left 前驱，头插法反转指定区间。}
+\begin{verbatim}
+dummy.next=head; pre=dummy
+move pre to node before left
+cur = pre.next
+repeat right-left times:
+    next = cur.next
+    cur.next = next.next
+    next.next = pre.next
+    pre.next = next
+return dummy.next
+\end{verbatim}
+
+\problem{93}{Restore IP Addresses}{回溯选择 4 段，每段长度 1 到 3 且数值合法。}
+\begin{verbatim}
+dfs(pos, parts):
+    if parts count == 4:
+        if pos == len(s): add join(parts,'.')
+        return
+    for len in 1..3:
+        seg = s[pos:pos+len]
+        if seg valid (no leading zero unless single, <=255):
+            dfs(pos+len, parts+[seg])
+\end{verbatim}
+
+\problem{94}{Binary Tree Inorder Traversal}{迭代栈：一路向左入栈，弹出访问后转右子树。}
+\begin{verbatim}
+stack=[]; cur=root; ans=[]
+while cur or stack:
+    while cur: push cur; cur=cur.left
+    cur=pop; ans.append(cur.val)
+    cur=cur.right
+return ans
+\end{verbatim}
+
+\problem{95}{Unique Binary Search Trees II}{递归枚举根节点，组合所有左右子树。}
+\begin{verbatim}
+build(l, r):
+    if l > r: return [null]
+    ans=[]
+    for rootVal from l to r:
+        for left in build(l, rootVal-1):
+            for right in build(rootVal+1, r):
+                ans.append(new Tree(rootVal,left,right))
+    return ans
+return build(1,n)
+\end{verbatim}
+
+\problem{96}{Unique Binary Search Trees}{Catalan DP，枚举根节点划分左右子树数量。}
+\begin{verbatim}
+dp[0]=dp[1]=1
+for nodes from 2 to n:
+    for leftSize from 0 to nodes-1:
+        dp[nodes] += dp[leftSize] * dp[nodes-1-leftSize]
+return dp[n]
+\end{verbatim}
+
+\problem{97}{Interleaving String}{二维 DP，判断 s3 前 i+j 个能否由 s1 前 i 个和 s2 前 j 个交错组成。}
+\begin{verbatim}
+if len(s1)+len(s2)!=len(s3): return false
+dp[0][0]=true
+for i=0..m:
+  for j=0..n:
+    if i>0 and s1[i-1]==s3[i+j-1]: dp[i][j] |= dp[i-1][j]
+    if j>0 and s2[j-1]==s3[i+j-1]: dp[i][j] |= dp[i][j-1]
+return dp[m][n]
+\end{verbatim}
+
+\problem{98}{Validate Binary Search Tree}{递归传递当前节点允许的开区间上下界。}
+\begin{verbatim}
+valid(node, low, high):
+    if node null: return true
+    if node.val <= low or node.val >= high: return false
+    return valid(node.left, low, node.val) and valid(node.right, node.val, high)
+return valid(root, -inf, +inf)
+\end{verbatim}
+
+\problem{99}{Recover Binary Search Tree}{中序遍历应递增，找到两个逆序节点并交换值。}
+\begin{verbatim}
+prev=null; first=null; second=null
+inorder(node):
+    inorder(node.left)
+    if prev and prev.val > node.val:
+        if first is null: first = prev
+        second = node
+    prev = node
+    inorder(node.right)
+inorder(root)
+swap first.val and second.val
+\end{verbatim}
+
+\problem{100}{Same Tree}{递归比较两个节点是否同时为空、值相等且左右子树相同。}
+\begin{verbatim}
+same(p, q):
+    if p null and q null: return true
+    if p null or q null: return false
+    if p.val != q.val: return false
+    return same(p.left,q.left) and same(p.right,q.right)
+\end{verbatim}
+
+\end{document}

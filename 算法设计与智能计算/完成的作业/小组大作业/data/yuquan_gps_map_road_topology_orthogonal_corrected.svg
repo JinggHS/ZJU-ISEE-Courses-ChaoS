@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2560" viewBox="0 0 1600 2560">
+<rect width="100%" height="100%" fill="white"/>
+<path d="M 650,760 L 1460,760" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1460,760 L 1460,1686" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 650,1050 L 1220,1050" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1220,760 L 1220,1622" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 650,1686 L 1460,1686" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 650,1920 L 1220,1920" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 650,1686 L 650,2500" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1220,1622 L 1220,2344" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 530,760 L 650,760" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1460,1622 L 1460,1686" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1190,2344 L 1220,2344" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 560,2462 L 650,2462" fill="none" stroke="black" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 540.0,68.0 L 540.0,241.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 548.0,289.0 L 548,454 L 475.0,454.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 548.0,289.0 L 548,432 L 596.0,432.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 760.0,432.0 L 883,432 L 883.0,446.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 965.0,422.0 L 1037,422 L 1037.0,572.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1037.0,620.0 L 1037,760 L 1414,760 L 1414.0,697.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 475.0,454.0 L 530,454 L 530,778 L 503.0,778.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 382.0,778.0 L 405,778 L 405,1508 L 313.0,1508.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 443.0,802.0 L 443,985 L 650,985 L 650,932 L 674.0,932.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 741.0,956.0 L 741,1050 L 1066,1050 L 1066.0,1212.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 741.0,956.0 L 741,1050 L 1083,1050 L 1083.0,1482.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1148.0,1236.0 L 1083,1236 L 1083.0,1482.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1083.0,1529.0 L 1083,1622 L 1352.0,1622.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 313.0,1508.0 L 410,1508 L 410.0,1662.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 492.0,1686.0 L 854,1686 L 854.0,1742.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 492.0,1686.0 L 650,1686 L 650,932 L 674.0,932.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 787.0,1766.0 L 520,1766 L 520,1874 L 191.0,1874.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 109.0,1898.0 L 109,1984 L 88.0,1984.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 186.0,2008.0 L 186,2385 L 502,2385 L 502.0,2437.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 920.0,1766.0 L 980,1766 L 980,2344 L 1037.0,2344.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1037.0,2344.0 L 502,2344 L 502.0,2437.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M 1037.0,2344.0 L 1083,2344 L 1083.0,1529.0" fill="none" stroke="black" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+<rect x="473" y="19" width="133" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="485" y="58" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">01 北门</text>
+<rect x="450" y="241" width="195" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="462" y="280" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">02 菜鸟驿站</text>
+<rect x="335" y="430" width="140" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="347" y="469" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">03 32舍</text>
+<rect x="596" y="408" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="608" y="447" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">04 校医院</text>
+<rect x="801" y="398" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="813" y="437" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">05 四食堂</text>
+<rect x="955" y="572" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="967" y="611" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">06 三食堂</text>
+<rect x="1332" y="648" width="164" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="1344" y="687" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">07 新桥门</text>
+<rect x="382" y="754" width="121" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="394" y="793" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">08 8舍</text>
+<rect x="674" y="907" width="133" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="686" y="946" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">09 永谦</text>
+<rect x="984" y="1212" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="996" y="1251" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">10 田径场</text>
+<rect x="180" y="1484" width="133" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="192" y="1523" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">11 教七</text>
+<rect x="1016" y="1482" width="133" height="47" fill="white" stroke="black" stroke-width="4"/>
+<text x="1028" y="1521" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">12 教一</text>
+<rect x="1352" y="1597" width="133" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="1364" y="1636" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">13 正门</text>
+<rect x="328" y="1662" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="340" y="1701" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">14 图书馆</text>
+<rect x="787" y="1742" width="133" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="799" y="1781" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">15 教四</text>
+<rect x="27" y="1850" width="164" height="48" fill="white" stroke="black" stroke-width="4"/>
+<text x="39" y="1889" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">16 信电楼</text>
+<rect x="88" y="1959" width="195" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="100" y="1998" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">17 高分子楼</text>
+<rect x="1037" y="2319" width="164" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="1049" y="2358" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">18 曹光彪</text>
+<rect x="435" y="2437" width="133" height="49" fill="white" stroke="black" stroke-width="4"/>
+<text x="447" y="2476" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="31" font-weight="700" fill="black">19 南门</text>
+</svg>

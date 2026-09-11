@@ -1,0 +1,186 @@
+# 改进版 LeNet-5：增加卷积通道数，调整全连接层结构
+from pathlib import Path
+import matplotlib.pyplot as plt
+
+
+class ImprovedLeNet5(nn.Cell):
+    """Improved LeNet5"""
+
+    def __init__(self, num_classes=10, num_channel=1):
+        super(ImprovedLeNet5, self).__init__()
+
+        # 改动1：卷积通道数由原来的 6、16 改为 8、32
+        self.conv1 = nn.Conv2d(num_channel, 8, 5, pad_mode='valid')
+        self.conv2 = nn.Conv2d(8, 32, 5, pad_mode='valid')
+
+        self.relu = nn.ReLU()
+        self.max_pool2d = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.flatten = nn.Flatten()
+
+        # 改动2：全连接层结构调整
+        self.fc1 = nn.Dense(32 * 5 * 5, 128, weight_init=Normal(0.02))
+        self.fc2 = nn.Dense(128, 64, weight_init=Normal(0.02))
+        self.fc3 = nn.Dense(64, num_classes, weight_init=Normal(0.02))
+
+    def construct(self, x):
+        x = self.conv1(x)
+        x = self.relu(x)
+        x = self.max_pool2d(x)
+
+        x = self.conv2(x)
+        x = self.relu(x)
+        x = self.max_pool2d(x)
+
+        x = self.flatten(x)
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+
+# 训练函数
+def train_loop(model, dataset, loss_fn, optimizer):
+    def forward_fn(data, label):
+        logits = model(data)
+        loss = loss_fn(logits, label)
+        return loss
+
+    grad_fn = ms.value_and_grad(forward_fn, None, optimizer.parameters)
+
+    def train_step(data, label):
+        loss, grads = grad_fn(data, label)
+        optimizer(grads)
+        return loss
+
+    size = dataset.get_dataset_size()
+    model.set_train()
+
+    for batch, (data, label) in enumerate(dataset.create_tuple_iterator()):
+        loss = train_step(data, label)
+
+        if batch % 100 == 0:
+            loss_value = loss.asnumpy()
+            print(f"loss: {loss_value:>7f}  [{batch:>3d}/{size:>3d}]")
+
+
+# 测试函数
+def test_loop(model, dataset, loss_fn):
+    num_batches = dataset.get_dataset_size()
+    model.set_train(False)
+
+    total = 0
+    test_loss = 0
+    correct = 0
+
+    for data, label in dataset.create_tuple_iterator():
+        pred = model(data)
+        total += data.shape[0]
+        test_loss += loss_fn(pred, label).asnumpy()
+        correct += (pred.argmax(1) == label).asnumpy().sum()
+
+    test_loss /= num_batches
+    correct /= total
+
+    accuracy = 100 * correct
+    print(f"Test: \n Accuracy: {accuracy:>0.1f}%, Avg loss: {test_loss:>8f} \n")
+    return accuracy, test_loss
+
+
+# 实例化改进模型
+improved_network = ImprovedLeNet5()
+
+# 定义损失函数
+improved_loss = nn.SoftmaxCrossEntropyWithLogits(sparse=True, reduction='mean')
+
+# 定义优化器
+improved_opt = nn.Momentum(
+    improved_network.trainable_params(),
+    learning_rate=0.01,
+    momentum=0.9
+)
+
+# 训练改进模型
+epochs = 3
+original_acc_history = [97.1, 98.5, 98.7]
+original_loss_history = [0.087939, 0.045166, 0.037301]
+improved_acc_history = []
+improved_loss_history = []
+
+for t in range(epochs):
+    print(f"Improved Model Epoch {t + 1}")
+    print("-------------------------------")
+    train_loop(improved_network, dataset_train, improved_loss, improved_opt)
+    ms.save_checkpoint(improved_network, "./save_improved.ckpt")
+    acc, avg_loss = test_loop(improved_network, dataset_eval, improved_loss)
+    improved_acc_history.append(acc)
+    improved_loss_history.append(avg_loss)
+
+print("Improved model training done!")
+
+
+# 绘制训练结果对比图，并保存到 figures 文件夹
+def save_training_plots():
+    figures_dir = Path("../figures") if Path("../figures").exists() else Path("figures")
+    figures_dir.mkdir(parents=True, exist_ok=True)
+
+    epoch_range = list(range(1, epochs + 1))
+    plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "SimSun"]
+    plt.rcParams["axes.unicode_minus"] = False
+
+    plt.figure(figsize=(6.8, 4.2), dpi=180)
+    plt.plot(epoch_range, original_acc_history, marker="o", linewidth=2.0,
+             label="Original LeNet-5")
+    plt.plot(epoch_range, improved_acc_history, marker="s", linewidth=2.0,
+             label="Improved LeNet-5")
+    plt.xticks(epoch_range)
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy (%)")
+    plt.ylim(96.5, 99.3)
+    plt.grid(True, linestyle="--", alpha=0.35)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(figures_dir / "10_accuracy_curve.png", bbox_inches="tight")
+    plt.close()
+
+    plt.figure(figsize=(6.8, 4.2), dpi=180)
+    plt.plot(epoch_range, original_loss_history, marker="o", linewidth=2.0,
+             label="Original LeNet-5")
+    plt.plot(epoch_range, improved_loss_history, marker="s", linewidth=2.0,
+             label="Improved LeNet-5")
+    plt.xticks(epoch_range)
+    plt.xlabel("Epoch")
+    plt.ylabel("Avg loss")
+    plt.grid(True, linestyle="--", alpha=0.35)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(figures_dir / "11_loss_curve.png", bbox_inches="tight")
+    plt.close()
+
+    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.8), dpi=180)
+    axes[0].bar(["Original", "Improved"],
+                [original_acc_history[-1], improved_acc_history[-1]],
+                color=["#6A8FBF", "#D9825B"])
+    axes[0].set_ylabel("Accuracy (%)")
+    axes[0].set_ylim(98.0, 99.2)
+    axes[0].grid(axis="y", linestyle="--", alpha=0.3)
+    for i, value in enumerate([original_acc_history[-1], improved_acc_history[-1]]):
+        axes[0].text(i, value + 0.03, f"{value:.1f}%",
+                     ha="center", va="bottom", fontsize=9)
+
+    axes[1].bar(["Original", "Improved"],
+                [original_loss_history[-1], improved_loss_history[-1]],
+                color=["#6A8FBF", "#D9825B"])
+    axes[1].set_ylabel("Avg loss")
+    axes[1].set_ylim(0.0, 0.045)
+    axes[1].grid(axis="y", linestyle="--", alpha=0.3)
+    for i, value in enumerate([original_loss_history[-1], improved_loss_history[-1]]):
+        axes[1].text(i, value + 0.001, f"{value:.6f}",
+                     ha="center", va="bottom", fontsize=9)
+
+    fig.suptitle("Final Result Comparison", y=1.02, fontsize=12)
+    fig.tight_layout()
+    fig.savefig(figures_dir / "12_final_comparison.png", bbox_inches="tight")
+    plt.close(fig)
+
+
+save_training_plots()

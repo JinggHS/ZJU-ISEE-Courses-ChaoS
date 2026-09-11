@@ -1,0 +1,2 @@
+﻿algorithm,weather,cargo,route_ids,route_names,drive_time,delay_time,total_time,delayed_nodes,return_to_start,checked_routes,checked_states,checked_transitions,runtime_seconds,source
+exact_dp,sunny,small,"[1,2,3,6,7,14,19]",北门 -> 菜鸟驿站 -> 32舍 -> 三食堂 -> 新桥门 -> 图书馆 -> 南门,6.83,9.00,15.83,3 32舍; 6 三食堂; 19 南门,false,720,374,780,0.001002,interactive_result.csv
